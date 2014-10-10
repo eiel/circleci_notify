@@ -4,6 +4,6 @@ require "circleci_notify/notifier"
 module CircleciNotify
   def self.run
     notifier = CircleciNotify::Notifier.new
-    notifier.notify
+    notifier.notify(ARGV.first)
   end
 end

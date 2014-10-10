@@ -2,12 +2,10 @@ machine:
   ruby:
     version: 2.1.2
 test:
-  pre:
-    - env
   override:
     - echo test
   post:
-    - env
+    - bin/circleci_notify End
 # deployment:
 #   production:
 #     commands:
