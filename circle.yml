@@ -5,9 +5,10 @@ test:
   override:
     - gem install chatwork
   post:
-    - bin/circleci_notify End
+    - bin/circleci_notify Ended
 deployment:
   production:
+    branch: master
     commands:
       - echo deploy
-      - bin/circleci_notify End
+      - bin/circleci_notify Deploy Ended
