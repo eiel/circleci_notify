@@ -5,10 +5,8 @@ test:
     - echo test
   post:
     - env
-deployment:
-  pre:
-    - env
-  override:
-    - echo deploy
-  post:
-    - env
+# deployment:
+#   production:
+#     commands:
+#       - echo deploy
+#       - env
