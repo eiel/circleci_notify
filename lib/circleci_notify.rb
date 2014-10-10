@@ -3,7 +3,7 @@ require "circleci_notify/notifier"
 
 module CircleciNotify
   def self.run
-    notifier = CircleciNotify::Notifier.new
-    notifier.notify(ARGV.first)
+    notifier = CircleciNotify::Notifier.new(ARGV.first)
+    notifier.notify
   end
 end

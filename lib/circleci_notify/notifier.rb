@@ -2,9 +2,12 @@ require "chatwork"
 
 module CircleciNotify
   class Notifier
+    attr_reader :message
+
     def initialize(message)
       @api = ENV["CHATWORK_API"]
       @room_id = ENV["CHATWORK_ROOM_ID"].to_i
+      @message = message
     end
 
     def notify
@@ -27,7 +30,19 @@ MESSAGE
     end
 
     def build_report
-      "https://circleci.com/gh/" + ENV["CIRCLE_PROJECT_USERNAME"] + "/" + ENV["CIRCLE_PROJECT_REPONAME"] + "/" + ENV["CIRCLE_BUILD_NUM"]
+      "https://circleci.com/gh/#{username}/#{reponame}/number"
+    end
+
+    def number
+      ENV["CIRCLE_BUILD_NUM"]
+    end
+
+    def reponame
+      ENV["CIRCLE_PROJECT_REPONAME"]
+    end
+
+    def username
+      ENV["CIRCLE_PROJECT_USERNAME"]
     end
 
     def sha
@@ -35,7 +50,7 @@ MESSAGE
     end
 
     def github
-      @github_url ||= ENV["CIRCLE_COMPARE_URL"].match(/(.*)\/compare.*/)[1]
+      "https://github.com/#{username}/#{reponame}"
     end
   end
 end
