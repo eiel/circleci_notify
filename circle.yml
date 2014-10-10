@@ -6,8 +6,8 @@ test:
     - gem install chatwork
   post:
     - bin/circleci_notify End
-# deployment:
-#   production:
-#     commands:
-#       - echo deploy
-#       - env
+deployment:
+  production:
+    commands:
+      - echo deploy
+      - bin/circleci_notify End

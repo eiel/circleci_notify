@@ -20,7 +20,7 @@ module CircleciNotify
       [info][title]CircleCI Builds #{message}[/title]
       build report: #{build_report}
       compare: #{compare}
-      commits: #{github}/#{sha}
+      commits: #{github}/commit/#{sha}
       [/info]
 MESSAGE
     end
