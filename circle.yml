@@ -1,0 +1,14 @@
+test:
+  pre:
+    - env
+  override:
+    - echo test
+  post:
+    - env
+deployment:
+  pre:
+    - env
+  override:
+    - echo deploy
+  post:
+    - env
